@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EEB5D7FA-24FA-4EF5-95F1-D1A5E1FD3695}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sysBen</RootNamespace>
+    <AssemblyName>sysBen</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Office\Office16\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\Crypto.cs" />
+    <Compile Include="classes\Definition.cs" />
+    <Compile Include="classes\FunctionMoeb.cs" />
+    <Compile Include="classes\ItemProd.cs" />
+    <Compile Include="classes\MaskedTextBoxCell.cs" />
+    <Compile Include="classes\MaskedTextBoxColumn.cs" />
+    <Compile Include="classes\MaskedTextBoxEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="classes\Pesq.cs" />
+    <Compile Include="daoDLL.cs" />
+    <Compile Include="Forms\FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\formPatrimonioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\formPatrimonioView.Designer.cs">
+      <DependentUpon>formPatrimonioView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\formPatrimonioList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\formPatrimonioList.Designer.cs">
+      <DependentUpon>formPatrimonioList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGeneralFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGeneralFilter.designer.cs">
+      <DependentUpon>frmGeneralFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportAluno.designer.cs">
+      <DependentUpon>ImportAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResponsavel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResponsavel.Designer.cs">
+      <DependentUpon>frmResponsavel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFuncionario.Designer.cs">
+      <DependentUpon>frmFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmIdentificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmIdentificador.Designer.cs">
+      <DependentUpon>frmIdentificador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\importImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\importImage.Designer.cs">
+      <DependentUpon>importImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDuplicidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDuplicidade.Designer.cs">
+      <DependentUpon>frmDuplicidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmConvertName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConvertName.Designer.cs">
+      <DependentUpon>frmConvertName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNulo.Designer.cs">
+      <DependentUpon>frmNulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBloquear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBloquear.Designer.cs">
+      <DependentUpon>frmBloquear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\frmModel01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmModel01.designer.cs">
+      <DependentUpon>frmModel01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\frmModel02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmModel02.designer.cs">
+      <DependentUpon>frmModel02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\frmModel03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmModel03.designer.cs">
+      <DependentUpon>frmModel03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\frmModel04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\frmModel04.designer.cs">
+      <DependentUpon>frmModel04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\formPatrimonioView.resx">
+      <DependentUpon>formPatrimonioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBloquear.resx">
+      <DependentUpon>frmBloquear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConvertName.resx">
+      <DependentUpon>frmConvertName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDuplicidade.resx">
+      <DependentUpon>frmDuplicidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFuncionario.resx">
+      <DependentUpon>frmFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGeneralFilter.resx">
+      <DependentUpon>frmGeneralFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIdentificador.resx">
+      <DependentUpon>frmIdentificador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNulo.resx">
+      <DependentUpon>frmNulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResponsavel.resx">
+      <DependentUpon>frmResponsavel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportAluno.resx">
+      <DependentUpon>ImportAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\importImage.resx">
+      <DependentUpon>importImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmModel01.resx">
+      <DependentUpon>frmModel01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmModel02.resx">
+      <DependentUpon>frmModel02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmModel03.resx">
+      <DependentUpon>frmModel03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\frmModel04.resx">
+      <DependentUpon>frmModel04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\images\Icones\calcultr.wmf" />
+    <None Include="Resources\images\png\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow016.gif" />
+    <Content Include="Resources\fvertd.gif" />
+    <Content Include="Resources\images\arow016.gif" />
+    <Content Include="Resources\images\hwright.gif" />
+    <Content Include="Resources\1441158110_34.png" />
+    <Content Include="Resources\back02.jpg" />
+    <Content Include="Resources\backMain.jpg" />
+    <Content Include="Resources\back_wall.jpg" />
+    <Content Include="Resources\botton.jpg" />
+    <Content Include="Resources\botton1.jpg" />
+    <Content Include="Resources\excel1.1.jpeg" />
+    <Content Include="Resources\excel1.jpeg" />
+    <Content Include="Resources\excel11.jpeg" />
+    <None Include="Resources\foto_lasalle.jpg" />
+    <Content Include="Resources\icoError.jpg" />
+    <Content Include="Resources\icoOk.jpg" />
+    <Content Include="Resources\icoTitle.jpg" />
+    <Content Include="Resources\ico_title.jpg" />
+    <None Include="Resources\ico_title1.jpg" />
+    <Content Include="Resources\images2.jpeg" />
+    <Content Include="Resources\images3.jpeg" />
+    <Content Include="Resources\images\1441157179_f-right_256.png" />
+    <Content Include="Resources\images\1441157199_arrow-right.png" />
+    <Content Include="Resources\images\1441157333_forward.png" />
+    <Content Include="Resources\images\1441157353_7.png" />
+    <Content Include="Resources\images\Icones\003.png" />
+    <Content Include="Resources\images\Icones\210.ICO" />
+    <Content Include="Resources\images\Icones\3DFOLD~4.ICO" />
+    <Content Include="Resources\images\Icones\agora vai.jpg" />
+    <Content Include="Resources\images\Icones\Be Draw.ico" />
+    <Content Include="Resources\images\Icones\Be Heap Watch.ico" />
+    <Content Include="Resources\images\Icones\BeBox Watcher.ico" />
+    <Content Include="Resources\images\Icones\BeIDE.ico" />
+    <Content Include="Resources\images\Icones\BeScrollBar.ico" />
+    <Content Include="Resources\images\Icones\BINOCULR.ICO" />
+    <Content Include="Resources\images\Icones\brasil.ico" />
+    <Content Include="Resources\images\Icones\calculadora.ico" />
+    <Content Include="Resources\images\Icones\cancelar.ico" />
+    <Content Include="Resources\images\Icones\CASH01A.ICO" />
+    <Content Include="Resources\images\Icones\CHEQU01A.ICO" />
+    <Content Include="Resources\images\Icones\CLIPB15M.ICO" />
+    <Content Include="Resources\images\Icones\CLOSE.BMP" />
+    <Content Include="Resources\images\Icones\CONTACTL.ICO" />
+    <Content Include="Resources\images\Icones\CRDFLE04.ICO" />
+    <Content Include="Resources\images\Icones\CRDFLE13.ICO" />
+    <Content Include="Resources\images\Icones\CREDT01K.ICO" />
+    <Content Include="Resources\images\Icones\CREDT03F.ICO" />
+    <Content Include="Resources\images\Icones\DISK06.ICO" />
+    <Content Include="Resources\images\Icones\DOCUM00B.ICO" />
+    <Content Include="Resources\images\Icones\DRAG1PG.ICO" />
+    <Content Include="Resources\images\Icones\drogaria noronha 2.ico" />
+    <Content Include="Resources\images\Icones\drogaria noronha.ico" />
+    <Content Include="Resources\images\Icones\EDIT.ICO" />
+    <Content Include="Resources\images\Icones\ELIMINA.BMP" />
+    <Content Include="Resources\images\Icones\Espacio-Entorno de red.ico" />
+    <Content Include="Resources\images\Icones\EXCEL.ICO" />
+    <Content Include="Resources\images\Icones\EXIT.ICO" />
+    <Content Include="Resources\images\Icones\EXIT00C.ICO" />
+    <Content Include="Resources\images\Icones\FIELD.ICO" />
+    <Content Include="Resources\images\Icones\FILES04.ICO" />
+    <Content Include="Resources\images\Icones\flag_peru.gif" />
+    <Content Include="Resources\images\Icones\FOLDER2.ICO" />
+    <Content Include="Resources\images\Icones\fondo2.bmp" />
+    <Content Include="Resources\images\Icones\fondo_05.gif" />
+    <Content Include="Resources\images\Icones\Grafico06.bmp" />
+    <Content Include="Resources\images\Icones\Grafico11.bmp" />
+    <Content Include="Resources\images\Icones\Guardar1.bmp" />
+    <Content Include="Resources\images\Icones\LOGO.jpg" />
+    <Content Include="Resources\images\Icones\MANUAL DROGARIA NORONHA - CURVAS 2.jpg" />
+    <Content Include="Resources\images\Icones\NET06.ICO" />
+    <Content Include="Resources\images\Icones\NET13.ICO" />
+    <Content Include="Resources\images\Icones\new.bmp" />
+    <Content Include="Resources\images\Icones\OOFL.ICO" />
+    <Content Include="Resources\images\Icones\pega aew peru.jpg" />
+    <Content Include="Resources\images\Icones\phone11.ico" />
+    <Content Include="Resources\images\Icones\PIEDRA.BMP" />
+    <Content Include="Resources\images\Icones\POINT05.ICO" />
+    <Content Include="Resources\images\Icones\PORTRAIT.ICO" />
+    <Content Include="Resources\images\Icones\preview.bmp" />
+    <Content Include="Resources\images\Icones\print.bmp" />
+    <Content Include="Resources\images\Icones\PRINTFLD.ICO" />
+    <Content Include="Resources\images\Icones\Salir1.bmp" />
+    <Content Include="Resources\images\Icones\SD.bmp" />
+    <Content Include="Resources\images\Icones\SD.tif" />
+    <Content Include="Resources\images\Icones\SD2.bmp" />
+    <Content Include="Resources\images\Icones\SDicone.ico" />
+    <Content Include="Resources\images\Icones\SECUR05.ICO" />
+    <Content Include="Resources\images\Icones\Sem título 1.jpg" />
+    <Content Include="Resources\images\Icones\TOOLS.ICO" />
+    <Content Include="Resources\images\Icones\TRFFC14.ICO" />
+    <Content Include="Resources\images\Icones\Untitled - 1.ico" />
+    <Content Include="Resources\images\Icones\Untitled - 3.ico" />
+    <Content Include="Resources\images\Icones\Untitled - 5.ico" />
+    <Content Include="Resources\images\Icones\VERREP.BMP" />
+    <Content Include="Resources\images\Icones\VIEW.BMP" />
+    <Content Include="Resources\images\Icones\visa novo.ico" />
+    <Content Include="Resources\images\Icones\w.bmp" />
+    <Content Include="Resources\images\Icones\W95MBX01.ICO" />
+    <Content Include="Resources\images\Icones\wAbrir.bmp" />
+    <Content Include="Resources\images\Icones\wActualizar.bmp" />
+    <Content Include="Resources\images\Icones\wBuscar.bmp" />
+    <Content Include="Resources\images\Icones\wBuscar1.bmp" />
+    <Content Include="Resources\images\Icones\wCancelar.bmp" />
+    <Content Include="Resources\images\Icones\wEliminar.bmp" />
+    <Content Include="Resources\images\Icones\wEstadistica.bmp" />
+    <Content Include="Resources\images\Icones\wGrabar.bmp" />
+    <Content Include="Resources\images\Icones\wImprimir.bmp" />
+    <Content Include="Resources\images\Icones\WINZIP.ICO" />
+    <Content Include="Resources\images\Icones\wNuevo.bmp" />
+    <Content Include="Resources\images\Icones\wzback.bmp" />
+    <Content Include="Resources\images\Icones\wzend.bmp" />
+    <Content Include="Resources\images\Icones\wznext.bmp" />
+    <Content Include="Resources\images\Icones\wztop.bmp" />
+    <Content Include="Resources\images\Icones\_cancel.bmp" />
+    <Content Include="Resources\images\Icones\_save.bmp" />
+    <Content Include="Resources\images\Icones\{CREDT0B.ICO" />
+    <Content Include="Resources\images\Papel\2523203-157124-1280.jpg" />
+    <Content Include="Resources\images\Papel\46435_Papel-de-Parede-Linux_1024x768.jpg" />
+    <Content Include="Resources\images\Papel\56224_Papel-de-Parede-Livro_800x600.jpg" />
+    <Content Include="Resources\images\Papel\linux-04.jpg" />
+    <Content Include="Resources\images\Papel\linux-background-pinguim_714_1024x768.jpg" />
+    <Content Include="Resources\images\Papel\windows_81287990689.jpg" />
+    <Content Include="Resources\images\PNG 1\backpack.png" />
+    <Content Include="Resources\images\PNG 1\blackboard.png" />
+    <Content Include="Resources\images\PNG 1\books.png" />
+    <Content Include="Resources\images\PNG 1\calculator.png" />
+    <Content Include="Resources\images\PNG 1\cross.png" />
+    <Content Include="Resources\images\PNG 1\dictionary.png" />
+    <Content Include="Resources\images\PNG 1\doc.png" />
+    <Content Include="Resources\images\PNG 1\email.png" />
+    <Content Include="Resources\images\PNG 1\external.png" />
+    <Content Include="Resources\images\PNG 1\feed.png" />
+    <Content Include="Resources\images\PNG 1\globe.png" />
+    <Content Include="Resources\images\PNG 1\im.png" />
+    <Content Include="Resources\images\PNG 1\key.png" />
+    <Content Include="Resources\images\PNG 1\math.png" />
+    <Content Include="Resources\images\PNG 1\mortarboard.png" />
+    <Content Include="Resources\images\PNG 1\palette.png" />
+    <Content Include="Resources\images\PNG 1\pdf.png" />
+    <Content Include="Resources\images\PNG 1\science.png" />
+    <Content Include="Resources\images\PNG 1\tick.png" />
+    <Content Include="Resources\images\PNG 1\visited.png" />
+    <Content Include="Resources\images\PNG 1\xls.png" />
+    <Content Include="Resources\images\PNG 2\auction.png" />
+    <Content Include="Resources\images\PNG 2\badge_2.png" />
+    <Content Include="Resources\images\PNG 2\calculator.png" />
+    <Content Include="Resources\images\PNG 2\cash.png" />
+    <Content Include="Resources\images\PNG 2\change.png" />
+    <Content Include="Resources\images\PNG 2\credit_card.png" />
+    <Content Include="Resources\images\PNG 2\credit_cards.png" />
+    <Content Include="Resources\images\PNG 2\credit_card_mastercard.png" />
+    <Content Include="Resources\images\PNG 2\delivery.png" />
+    <Content Include="Resources\images\PNG 2\gift.png" />
+    <Content Include="Resources\images\PNG 2\hot.png" />
+    <Content Include="Resources\images\PNG 2\lock.png" />
+    <Content Include="Resources\images\PNG 2\offer.png" />
+    <Content Include="Resources\images\PNG 2\partner.png" />
+    <Content Include="Resources\images\PNG 2\paypal.png" />
+    <Content Include="Resources\images\PNG 2\paypal_card.png" />
+    <Content Include="Resources\images\PNG 2\quality.png" />
+    <Content Include="Resources\images\PNG 2\registrator_box.png" />
+    <Content Include="Resources\images\PNG 2\save.png" />
+    <Content Include="Resources\images\PNG 2\shopping_basket.png" />
+    <Content Include="Resources\images\PNG 2\shopping_cart.png" />
+    <Content Include="Resources\images\PNG 2\storehouse.png" />
+    <Content Include="Resources\images\PNG 2\telephone.png" />
+    <Content Include="Resources\images\PNG 2\truck.png" />
+    <Content Include="Resources\images\PNG 2\wallet.png" />
+    <Content Include="Resources\images\PNG 3\auction_400.png" />
+    <Content Include="Resources\images\PNG 3\badge2_400.png" />
+    <Content Include="Resources\images\PNG 3\calculator_400.png" />
+    <Content Include="Resources\images\PNG 3\cash_400.png" />
+    <Content Include="Resources\images\PNG 3\change_400.png" />
+    <Content Include="Resources\images\PNG 3\credit_cards_400.png" />
+    <Content Include="Resources\images\PNG 3\credit_card_400.png" />
+    <Content Include="Resources\images\PNG 3\credit_card_mastercard_400.png" />
+    <Content Include="Resources\images\PNG 3\delivery_400.png" />
+    <Content Include="Resources\images\PNG 3\gift_400.png" />
+    <Content Include="Resources\images\PNG 3\hot_400.png" />
+    <Content Include="Resources\images\PNG 3\lock_400.png" />
+    <Content Include="Resources\images\PNG 3\offer_400.png" />
+    <Content Include="Resources\images\PNG 3\partner_400.png" />
+    <Content Include="Resources\images\PNG 3\paypal_400.png" />
+    <Content Include="Resources\images\PNG 3\paypal_card_400.png" />
+    <Content Include="Resources\images\PNG 3\quality_400.png" />
+    <Content Include="Resources\images\PNG 3\registrator_box_400.png" />
+    <Content Include="Resources\images\PNG 3\save_400.png" />
+    <Content Include="Resources\images\PNG 3\shopping_basket_400.png" />
+    <Content Include="Resources\images\PNG 3\shopping_cart_400.png" />
+    <Content Include="Resources\images\PNG 3\storehouse_400.png" />
+    <Content Include="Resources\images\PNG 3\telephone_400.png" />
+    <Content Include="Resources\images\PNG 3\truck_400.png" />
+    <Content Include="Resources\images\PNG 3\vallet_400.png" />
+    <Content Include="Resources\images\PNG 4\3.ico" />
+    <Content Include="Resources\images\PNG 4\avatar.png" />
+    <Content Include="Resources\images\PNG 4\canvas.png" />
+    <Content Include="Resources\images\PNG 4\color-palette.png" />
+    <Content Include="Resources\images\PNG 4\cup.png" />
+    <Content Include="Resources\images\PNG 4\dslr.png" />
+    <Content Include="Resources\images\PNG 4\macbook.png" />
+    <Content Include="Resources\images\PNG 4\mail.png" />
+    <Content Include="Resources\images\PNG 4\moleskine.png" />
+    <Content Include="Resources\images\PNG 4\paint-brushes.png" />
+    <Content Include="Resources\images\PNG 4\pencils.png" />
+    <Content Include="Resources\images\PNG 4\portfolio.png" />
+    <Content Include="Resources\images\PNG 4\tablet.png" />
+    <Content Include="Resources\images\PNG 4\TITO_Engine.ico" />
+    <Content Include="Resources\images\png\baby-girl24.png" />
+    <Content Include="Resources\images\png\baby-girl32.png" />
+    <Content Include="Resources\images\png\baby-girl48.png" />
+    <Content Include="Resources\images\png\battery-1-128.png" />
+    <Content Include="Resources\images\png\battery-1-16.png" />
+    <Content Include="Resources\images\png\battery-1-24.png" />
+    <Content Include="Resources\images\png\battery-1-256.png" />
+    <Content Include="Resources\images\png\battery-1-32.png" />
+    <Content Include="Resources\images\png\battery-1-48.png" />
+    <Content Include="Resources\images\png\battery-1-64.png" />
+    <Content Include="Resources\images\png\battery-2-128.png" />
+    <Content Include="Resources\images\png\battery-2-16.png" />
+    <Content Include="Resources\images\png\battery-2-24.png" />
+    <Content Include="Resources\images\png\battery-2-256.png" />
+    <Content Include="Resources\images\png\battery-2-32.png" />
+    <Content Include="Resources\images\png\battery-2-48.png" />
+    <Content Include="Resources\images\png\battery-2-64.png" />
+    <Content Include="Resources\images\png\battery-3-128.png" />
+    <Content Include="Resources\images\png\battery-3-16.png" />
+    <Content Include="Resources\images\png\battery-3-24.png" />
+    <Content Include="Resources\images\png\battery-3-256.png" />
+    <Content Include="Resources\images\png\battery-3-32.png" />
+    <Content Include="Resources\images\png\battery-3-48.png" />
+    <Content Include="Resources\images\png\battery-3-64.png" />
+    <Content Include="Resources\images\png\battery-charge128.png" />
+    <Content Include="Resources\images\png\battery-charge16.png" />
+    <Content Include="Resources\images\png\battery-charge24.png" />
+    <Content Include="Resources\images\png\battery-charge256.png" />
+    <Content Include="Resources\images\png\battery-charge32.png" />
+    <Content Include="Resources\images\png\battery-charge48.png" />
+    <Content Include="Resources\images\png\battery-charge64.png" />
+    <Content Include="Resources\images\png\battery-charged128.png" />
+    <Content Include="Resources\images\png\battery-charged16.png" />
+    <Content Include="Resources\images\png\battery-charged24.png" />
+    <Content Include="Resources\images\png\battery-charged256.png" />
+    <Content Include="Resources\images\png\battery-charged32.png" />
+    <Content Include="Resources\images\png\battery-charged48.png" />
+    <Content Include="Resources\images\png\battery-charged64.png" />
+    <Content Include="Resources\images\png\battery-empty128.png" />
+    <Content Include="Resources\images\png\battery-empty16.png" />
+    <Content Include="Resources\images\png\battery-empty24.png" />
+    <Content Include="Resources\images\png\battery-empty256.png" />
+    <Content Include="Resources\images\png\battery-empty32.png" />
+    <Content Include="Resources\images\png\battery-empty48.png" />
+    <Content Include="Resources\images\png\battery-empty64.png" />
+    <Content Include="Resources\images\png\battery-full128.png" />
+    <Content Include="Resources\images\png\battery-full16.png" />
+    <Content Include="Resources\images\png\battery-full24.png" />
+    <Content Include="Resources\images\png\battery-full256.png" />
+    <Content Include="Resources\images\png\battery-full32.png" />
+    <Content Include="Resources\images\png\battery-full48.png" />
+    <Content Include="Resources\images\png\battery-full64.png" />
+    <Content Include="Resources\images\png\battery-half128.png" />
+    <Content Include="Resources\images\png\battery-half16.png" />
+    <Content Include="Resources\images\png\battery-half24.png" />
+    <Content Include="Resources\images\png\battery-half256.png" />
+    <Content Include="Resources\images\png\battery-half32.png" />
+    <Content Include="Resources\images\png\battery-half48.png" />
+    <Content Include="Resources\images\png\battery-half64.png" />
+    <Content Include="Resources\images\png\bow128.png" />
+    <Content Include="Resources\images\png\bow16.png" />
+    <Content Include="Resources\images\png\bow24.png" />
+    <Content Include="Resources\images\png\bow256.png" />
+    <Content Include="Resources\images\png\bow32.png" />
+    <Content Include="Resources\images\png\bow48.png" />
+    <Content Include="Resources\images\png\bow64.png" />
+    <Content Include="Resources\images\png\circle128.png" />
+    <Content Include="Resources\images\png\circle16.png" />
+    <Content Include="Resources\images\png\circle24.png" />
+    <Content Include="Resources\images\png\circle256.png" />
+    <Content Include="Resources\images\png\circle32.png" />
+    <Content Include="Resources\images\png\circle48.png" />
+    <Content Include="Resources\images\png\circle64.png" />
+    <Content Include="Resources\images\png\comment-edit128.png" />
+    <Content Include="Resources\images\png\comment-edit16.png" />
+    <Content Include="Resources\images\png\comment-edit24.png" />
+    <Content Include="Resources\images\png\comment-edit256.png" />
+    <Content Include="Resources\images\png\comment-edit32.png" />
+    <Content Include="Resources\images\png\comment-edit48.png" />
+    <Content Include="Resources\images\png\comment-edit64.png" />
+    <Content Include="Resources\images\png\cookies128.png" />
+    <Content Include="Resources\images\png\cookies16.png" />
+    <Content Include="Resources\images\png\cookies24.png" />
+    <Content Include="Resources\images\png\cookies256.png" />
+    <Content Include="Resources\images\png\cookies32.png" />
+    <Content Include="Resources\images\png\cookies48.png" />
+    <Content Include="Resources\images\png\cookies64.png" />
+    <Content Include="Resources\images\png\delete-file128.png" />
+    <Content Include="Resources\images\png\delete-file16.png" />
+    <Content Include="Resources\images\png\delete-file24.png" />
+    <Content Include="Resources\images\png\delete-file256.png" />
+    <Content Include="Resources\images\png\delete-file32.png" />
+    <Content Include="Resources\images\png\delete-file48.png" />
+    <Content Include="Resources\images\png\delete-file64.png" />
+    <Content Include="Resources\images\png\edit-file128.png" />
+    <Content Include="Resources\images\png\edit-file16.png" />
+    <Content Include="Resources\images\png\edit-file24.png" />
+    <Content Include="Resources\images\png\edit-file256.png" />
+    <Content Include="Resources\images\png\edit-file32.png" />
+    <Content Include="Resources\images\png\edit-file48.png" />
+    <Content Include="Resources\images\png\edit-file64.png" />
+    <Content Include="Resources\images\png\edit-not-validated128.png" />
+    <Content Include="Resources\images\png\edit-not-validated16.png" />
+    <Content Include="Resources\images\png\edit-not-validated24.png" />
+    <Content Include="Resources\images\png\edit-not-validated256.png" />
+    <Content Include="Resources\images\png\edit-not-validated32.png" />
+    <Content Include="Resources\images\png\edit-not-validated48.png" />
+    <Content Include="Resources\images\png\edit-not-validated64.png" />
+    <Content Include="Resources\images\png\edit-validated128.png" />
+    <Content Include="Resources\images\png\edit-validated16.png" />
+    <Content Include="Resources\images\png\edit-validated24.png" />
+    <Content Include="Resources\images\png\edit-validated256.png" />
+    <Content Include="Resources\images\png\edit-validated32.png" />
+    <Content Include="Resources\images\png\edit-validated48.png" />
+    <Content Include="Resources\images\png\edit-validated64.png" />
+    <Content Include="Resources\images\png\elipse128.png" />
+    <Content Include="Resources\images\png\elipse16.png" />
+    <Content Include="Resources\images\png\elipse24.png" />
+    <Content Include="Resources\images\png\elipse256.png" />
+    <Content Include="Resources\images\png\elipse32.png" />
+    <Content Include="Resources\images\png\elipse48.png" />
+    <Content Include="Resources\images\png\elipse64.png" />
+    <Content Include="Resources\images\png\email-add128.png" />
+    <Content Include="Resources\images\png\email-add16.png" />
+    <Content Include="Resources\images\png\email-add24.png" />
+    <Content Include="Resources\images\png\email-add256.png" />
+    <Content Include="Resources\images\png\email-add32.png" />
+    <Content Include="Resources\images\png\email-add48.png" />
+    <Content Include="Resources\images\png\email-add64.png" />
+    <Content Include="Resources\images\png\email-alert128.png" />
+    <Content Include="Resources\images\png\email-alert16.png" />
+    <Content Include="Resources\images\png\email-alert24.png" />
+    <Content Include="Resources\images\png\email-alert256.png" />
+    <Content Include="Resources\images\png\email-alert32.png" />
+    <Content Include="Resources\images\png\email-alert48.png" />
+    <Content Include="Resources\images\png\email-alert64.png" />
+    <Content Include="Resources\images\png\email-delete128.png" />
+    <Content Include="Resources\images\png\email-delete16.png" />
+    <Content Include="Resources\images\png\email-delete24.png" />
+    <Content Include="Resources\images\png\email-delete256.png" />
+    <Content Include="Resources\images\png\email-delete32.png" />
+    <Content Include="Resources\images\png\email-delete48.png" />
+    <Content Include="Resources\images\png\email-delete64.png" />
+    <Content Include="Resources\images\png\email-edit128.png" />
+    <Content Include="Resources\images\png\email-edit16.png" />
+    <Content Include="Resources\images\png\email-edit24.png" />
+    <Content Include="Resources\images\png\email-edit256.png" />
+    <Content Include="Resources\images\png\email-edit32.png" />
+    <Content Include="Resources\images\png\email-edit48.png" />
+    <Content Include="Resources\images\png\email-edit64.png" />
+    <Content Include="Resources\images\png\email-info128.png" />
+    <Content Include="Resources\images\png\email-info16.png" />
+    <Content Include="Resources\images\png\email-info24.png" />
+    <Content Include="Resources\images\png\email-info256.png" />
+    <Content Include="Resources\images\png\email-info32.png" />
+    <Content Include="Resources\images\png\email-info48.png" />
+    <Content Include="Resources\images\png\email-info64.png" />
+    <Content Include="Resources\images\png\email-not-validated128.png" />
+    <Content Include="Resources\images\png\email-not-validated16.png" />
+    <Content Include="Resources\images\png\email-not-validated24.png" />
+    <Content Include="Resources\images\png\email-not-validated256.png" />
+    <Content Include="Resources\images\png\email-not-validated32.png" />
+    <Content Include="Resources\images\png\email-not-validated48.png" />
+    <Content Include="Resources\images\png\email-not-validated64.png" />
+    <Content Include="Resources\images\png\email-receive128.png" />
+    <Content Include="Resources\images\png\email-receive16.png" />
+    <Content Include="Resources\images\png\email-receive24.png" />
+    <Content Include="Resources\images\png\email-receive256.png" />
+    <Content Include="Resources\images\png\email-receive32.png" />
+    <Content Include="Resources\images\png\email-receive48.png" />
+    <Content Include="Resources\images\png\email-receive64.png" />
+    <Content Include="Resources\images\png\email-send128.png" />
+    <Content Include="Resources\images\png\email-send16.png" />
+    <Content Include="Resources\images\png\email-send24.png" />
+    <Content Include="Resources\images\png\email-send256.png" />
+    <Content Include="Resources\images\png\email-send32.png" />
+    <Content Include="Resources\images\png\email-send48.png" />
+    <Content Include="Resources\images\png\email-send64.png" />
+    <Content Include="Resources\images\png\email-trash128.png" />
+    <Content Include="Resources\images\png\email-trash16.png" />
+    <Content Include="Resources\images\png\email-trash24.png" />
+    <Content Include="Resources\images\png\email-trash256.png" />
+    <Content Include="Resources\images\png\email-trash32.png" />
+    <Content Include="Resources\images\png\email-trash48.png" />
+    <Content Include="Resources\images\png\email-trash64.png" />
+    <Content Include="Resources\images\png\email-validated128.png" />
+    <Content Include="Resources\images\png\email-validated16.png" />
+    <Content Include="Resources\images\png\email-validated24.png" />
+    <Content Include="Resources\images\png\email-validated256.png" />
+    <Content Include="Resources\images\png\email-validated32.png" />
+    <Content Include="Resources\images\png\email-validated48.png" />
+    <Content Include="Resources\images\png\email-validated64.png" />
+    <Content Include="Resources\images\png\exacto128.png" />
+    <Content Include="Resources\images\png\exacto16.png" />
+    <Content Include="Resources\images\png\exacto24.png" />
+    <Content Include="Resources\images\png\exacto256.png" />
+    <Content Include="Resources\images\png\exacto32.png" />
+    <Content Include="Resources\images\png\exacto48.png" />
+    <Content Include="Resources\images\png\exacto64.png" />
+    <Content Include="Resources\images\png\eyedroper128.png" />
+    <Content Include="Resources\images\png\eyedroper16.png" />
+    <Content Include="Resources\images\png\eyedroper24.png" />
+    <Content Include="Resources\images\png\eyedroper256.png" />
+    <Content Include="Resources\images\png\eyedroper32.png" />
+    <Content Include="Resources\images\png\eyedroper48.png" />
+    <Content Include="Resources\images\png\eyedroper64.png" />
+    <Content Include="Resources\images\png\file-complete128.png" />
+    <Content Include="Resources\images\png\file-complete16.png" />
+    <Content Include="Resources\images\png\file-complete24.png" />
+    <Content Include="Resources\images\png\file-complete256.png" />
+    <Content Include="Resources\images\png\file-complete32.png" />
+    <Content Include="Resources\images\png\file-complete48.png" />
+    <Content Include="Resources\images\png\file-complete64.png" />
+    <Content Include="Resources\images\png\file-info128.png" />
+    <Content Include="Resources\images\png\file-info16.png" />
+    <Content Include="Resources\images\png\file-info24.png" />
+    <Content Include="Resources\images\png\file-info256.png" />
+    <Content Include="Resources\images\png\file-info32.png" />
+    <Content Include="Resources\images\png\file-info48.png" />
+    <Content Include="Resources\images\png\file-info64.png" />
+    <Content Include="Resources\images\png\file-warning128.png" />
+    <Content Include="Resources\images\png\file-warning16.png" />
+    <Content Include="Resources\images\png\file-warning24.png" />
+    <Content Include="Resources\images\png\file-warning256.png" />
+    <Content Include="Resources\images\png\file-warning32.png" />
+    <Content Include="Resources\images\png\file-warning48.png" />
+    <Content Include="Resources\images\png\file-warning64.png" />
+    <Content Include="Resources\images\png\font-color128.png" />
+    <Content Include="Resources\images\png\font-color16.png" />
+    <Content Include="Resources\images\png\font-color24.png" />
+    <Content Include="Resources\images\png\font-color256.png" />
+    <Content Include="Resources\images\png\font-color32.png" />
+    <Content Include="Resources\images\png\font-color48.png" />
+    <Content Include="Resources\images\png\font-color64.png" />
+    <Content Include="Resources\images\png\font128.png" />
+    <Content Include="Resources\images\png\font16.png" />
+    <Content Include="Resources\images\png\font24.png" />
+    <Content Include="Resources\images\png\font256.png" />
+    <Content Include="Resources\images\png\font32.png" />
+    <Content Include="Resources\images\png\font48.png" />
+    <Content Include="Resources\images\png\font64.png" />
+    <Content Include="Resources\images\png\help-file128.png" />
+    <Content Include="Resources\images\png\help-file16.png" />
+    <Content Include="Resources\images\png\help-file24.png" />
+    <Content Include="Resources\images\png\help-file256.png" />
+    <Content Include="Resources\images\png\help-file32.png" />
+    <Content Include="Resources\images\png\help-file48.png" />
+    <Content Include="Resources\images\png\help-file64.png" />
+    <Content Include="Resources\images\png\hexagon128.png" />
+    <Content Include="Resources\images\png\hexagon16.png" />
+    <Content Include="Resources\images\png\hexagon24.png" />
+    <Content Include="Resources\images\png\hexagon256.png" />
+    <Content Include="Resources\images\png\hexagon32.png" />
+    <Content Include="Resources\images\png\hexagon48.png" />
+    <Content Include="Resources\images\png\hexagon64.png" />
+    <Content Include="Resources\images\png\iphone-not-validated128.png" />
+    <Content Include="Resources\images\png\iphone-not-validated16.png" />
+    <Content Include="Resources\images\png\iphone-not-validated24.png" />
+    <Content Include="Resources\images\png\iphone-not-validated256.png" />
+    <Content Include="Resources\images\png\iphone-not-validated32.png" />
+    <Content Include="Resources\images\png\iphone-not-validated48.png" />
+    <Content Include="Resources\images\png\iphone-not-validated64.png" />
+    <Content Include="Resources\images\png\iphone-validated128.png" />
+    <Content Include="Resources\images\png\iphone-validated16.png" />
+    <Content Include="Resources\images\png\iphone-validated24.png" />
+    <Content Include="Resources\images\png\iphone-validated256.png" />
+    <Content Include="Resources\images\png\iphone-validated32.png" />
+    <Content Include="Resources\images\png\iphone-validated48.png" />
+    <Content Include="Resources\images\png\iphone-validated64.png" />
+    <Content Include="Resources\images\png\Magnifying-glass128.png" />
+    <Content Include="Resources\images\png\Magnifying-glass16.png" />
+    <Content Include="Resources\images\png\Magnifying-glass24.png" />
+    <Content Include="Resources\images\png\Magnifying-glass256.png" />
+    <Content Include="Resources\images\png\Magnifying-glass32.png" />
+    <Content Include="Resources\images\png\Magnifying-glass48.png" />
+    <Content Include="Resources\images\png\Magnifying-glass64.png" />
+    <Content Include="Resources\images\png\new file128.png" />
+    <Content Include="Resources\images\png\new file16.png" />
+    <Content Include="Resources\images\png\new file24.png" />
+    <Content Include="Resources\images\png\new file256.png" />
+    <Content Include="Resources\images\png\new file32.png" />
+    <Content Include="Resources\images\png\new file48.png" />
+    <Content Include="Resources\images\png\new file64.png" />
+    <Content Include="Resources\images\png\octagon128.png" />
+    <Content Include="Resources\images\png\octagon16.png" />
+    <Content Include="Resources\images\png\octagon24.png" />
+    <Content Include="Resources\images\png\octagon256.png" />
+    <Content Include="Resources\images\png\octagon32.png" />
+    <Content Include="Resources\images\png\octagon48.png" />
+    <Content Include="Resources\images\png\octagon64.png" />
+    <Content Include="Resources\images\png\open-file128.png" />
+    <Content Include="Resources\images\png\open-file16.png" />
+    <Content Include="Resources\images\png\open-file24.png" />
+    <Content Include="Resources\images\png\open-file256.png" />
+    <Content Include="Resources\images\png\open-file32.png" />
+    <Content Include="Resources\images\png\open-file48.png" />
+    <Content Include="Resources\images\png\open-file64.png" />
+    <Content Include="Resources\images\png\painbrush128.png" />
+    <Content Include="Resources\images\png\painbrush16.png" />
+    <Content Include="Resources\images\png\painbrush24.png" />
+    <Content Include="Resources\images\png\painbrush256.png" />
+    <Content Include="Resources\images\png\painbrush32.png" />
+    <Content Include="Resources\images\png\painbrush48.png" />
+    <Content Include="Resources\images\png\painbrush64.png" />
+    <Content Include="Resources\images\png\painbucket128.png" />
+    <Content Include="Resources\images\png\painbucket16.png" />
+    <Content Include="Resources\images\png\painbucket24.png" />
+    <Content Include="Resources\images\png\painbucket256.png" />
+    <Content Include="Resources\images\png\painbucket32.png" />
+    <Content Include="Resources\images\png\painbucket48.png" />
+    <Content Include="Resources\images\png\painbucket64.png" />
+    <Content Include="Resources\images\png\palette128.png" />
+    <Content Include="Resources\images\png\palette16.png" />
+    <Content Include="Resources\images\png\palette24.png" />
+    <Content Include="Resources\images\png\palette256.png" />
+    <Content Include="Resources\images\png\palette32.png" />
+    <Content Include="Resources\images\png\palette48.png" />
+    <Content Include="Resources\images\png\palette64.png" />
+    <Content Include="Resources\images\png\pen128.png" />
+    <Content Include="Resources\images\png\pen16.png" />
+    <Content Include="Resources\images\png\pen24.png" />
+    <Content Include="Resources\images\png\pen256.png" />
+    <Content Include="Resources\images\png\pen32.png" />
+    <Content Include="Resources\images\png\pen48.png" />
+    <Content Include="Resources\images\png\pen64.png" />
+    <Content Include="Resources\images\png\pentagon128.png" />
+    <Content Include="Resources\images\png\pentagon16.png" />
+    <Content Include="Resources\images\png\pentagon24.png" />
+    <Content Include="Resources\images\png\pentagon256.png" />
+    <Content Include="Resources\images\png\pentagon32.png" />
+    <Content Include="Resources\images\png\pentagon48.png" />
+    <Content Include="Resources\images\png\pentagon64.png" />
+    <Content Include="Resources\images\png\rectangle128.png" />
+    <Content Include="Resources\images\png\rectangle16.png" />
+    <Content Include="Resources\images\png\rectangle24.png" />
+    <Content Include="Resources\images\png\rectangle256.png" />
+    <Content Include="Resources\images\png\rectangle32.png" />
+    <Content Include="Resources\images\png\rectangle48.png" />
+    <Content Include="Resources\images\png\rectangle64.png" />
+    <Content Include="Resources\images\png\rhombus128.png" />
+    <Content Include="Resources\images\png\rhombus16.png" />
+    <Content Include="Resources\images\png\rhombus24.png" />
+    <Content Include="Resources\images\png\rhombus256.png" />
+    <Content Include="Resources\images\png\rhombus32.png" />
+    <Content Include="Resources\images\png\rhombus48.png" />
+    <Content Include="Resources\images\png\rhombus64.png" />
+    <Content Include="Resources\images\png\rounded-rectangle128.png" />
+    <Content Include="Resources\images\png\rounded-rectangle16.png" />
+    <Content Include="Resources\images\png\rounded-rectangle24.png" />
+    <Content Include="Resources\images\png\rounded-rectangle256.png" />
+    <Content Include="Resources\images\png\rounded-rectangle32.png" />
+    <Content Include="Resources\images\png\rounded-rectangle48.png" />
+    <Content Include="Resources\images\png\rounded-rectangle64.png" />
+    <Content Include="Resources\images\png\search-file128.png" />
+    <Content Include="Resources\images\png\search-file16.png" />
+    <Content Include="Resources\images\png\search-file24.png" />
+    <Content Include="Resources\images\png\search-file256.png" />
+    <Content Include="Resources\images\png\search-file32.png" />
+    <Content Include="Resources\images\png\search-file48.png" />
+    <Content Include="Resources\images\png\search-file64.png" />
+    <Content Include="Resources\images\png\sortascend128.png" />
+    <Content Include="Resources\images\png\sortascend16.png" />
+    <Content Include="Resources\images\png\sortascend24.png" />
+    <Content Include="Resources\images\png\sortascend256.png" />
+    <Content Include="Resources\images\png\sortascend32.png" />
+    <Content Include="Resources\images\png\sortascend48.png" />
+    <Content Include="Resources\images\png\sortascend64.png" />
+    <Content Include="Resources\images\png\sortdescend128.png" />
+    <Content Include="Resources\images\png\sortdescend16.png" />
+    <Content Include="Resources\images\png\sortdescend24.png" />
+    <Content Include="Resources\images\png\sortdescend256.png" />
+    <Content Include="Resources\images\png\sortdescend32.png" />
+    <Content Include="Resources\images\png\sortdescend48.png" />
+    <Content Include="Resources\images\png\sortdescend64.png" />
+    <Content Include="Resources\images\png\spellchecker128.png" />
+    <Content Include="Resources\images\png\spellchecker16.png" />
+    <Content Include="Resources\images\png\spellchecker24.png" />
+    <Content Include="Resources\images\png\spellchecker256.png" />
+    <Content Include="Resources\images\png\spellchecker32.png" />
+    <Content Include="Resources\images\png\spellchecker48.png" />
+    <Content Include="Resources\images\png\spellchecker64.png" />
+    <Content Include="Resources\images\png\square128.png" />
+    <Content Include="Resources\images\png\square16.png" />
+    <Content Include="Resources\images\png\square24.png" />
+    <Content Include="Resources\images\png\square256.png" />
+    <Content Include="Resources\images\png\square32.png" />
+    <Content Include="Resources\images\png\square48.png" />
+    <Content Include="Resources\images\png\square64.png" />
+    <Content Include="Resources\images\png\teddy-bear128.png" />
+    <Content Include="Resources\images\png\teddy-bear16.png" />
+    <Content Include="Resources\images\png\teddy-bear24.png" />
+    <Content Include="Resources\images\png\teddy-bear256.png" />
+    <Content Include="Resources\images\png\teddy-bear32.png" />
+    <Content Include="Resources\images\png\teddy-bear48.png" />
+    <Content Include="Resources\images\png\teddy-bear64.png" />
+    <Content Include="Resources\images\png\triangle128.png" />
+    <Content Include="Resources\images\png\triangle16.png" />
+    <Content Include="Resources\images\png\triangle24.png" />
+    <Content Include="Resources\images\png\triangle256.png" />
+    <Content Include="Resources\images\png\triangle32.png" />
+    <Content Include="Resources\images\png\triangle48.png" />
+    <Content Include="Resources\images\png\triangle64.png" />
+    <Content Include="Resources\images\set60.gif" />
+    <Content Include="Resources\LogoFox.JPG" />
+    <Content Include="Resources\MenuBar.jpg" />
+    <Content Include="Resources\misc_26.png" />
+    <Content Include="Resources\top_bar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSDAOSP">
+      <Guid>{E0E270C2-C0BE-11D0-8FE4-00A0C90A6341}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>1033</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
